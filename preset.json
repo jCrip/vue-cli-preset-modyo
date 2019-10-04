@@ -3,6 +3,9 @@
   "plugins": {
     "@vue/cli-plugin-babel": {},
     "@vue/cli-plugin-unit-jest": {},
+    "@vue/cli-plugin-eslint": {
+      "prompts": true
+    },
     "vue-cli-plugin-i18n": {
       "version": "^0.6.0",
       "prompts": true

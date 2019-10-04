@@ -1,48 +1,49 @@
-import Vue from 'vue';
-import currency from 'currency.js';
+import Vue from 'vue'
+import currency from 'currency.js'
 
 
-const CLP = value => currency(value, {
+const CLP = ( value ) => currency( value, {
   symbol: '$',
   precision: 0,
   separator: '.',
   decimal: ',',
   formatWithSymbol: true,
-});
+})
 
-const USD = value => currency(value, {
+const USD = ( value ) => currency( value, {
   symbol: 'US$',
   separator: '.',
   decimal: ',',
   formatWithSymbol: true,
-});
+})
 
-const UF = value => currency(value, {
+const UF = ( value ) => currency( value, {
   symbol: 'UF ',
   separator: '.',
   decimal: ',',
   formatWithSymbol: true,
-});
+})
 
-const EURO = value => currency(value, {
+const EURO = ( value ) => currency( value, {
   symbol: '€ ',
   separator: '.',
   decimal: ',',
   formatWithSymbol: true,
-});
+})
 
-Vue.filter('currency', (value, moneda = 'CLP') => {
-  if (moneda.toUpperCase() === 'UF') {
-    return UF(parseFloat(value)).format();
+Vue.filter( 'currency', ( value, moneda = 'CLP' ) => {
+  if ( moneda.toUpperCase() === 'UF' ) {
+    return UF( parseFloat( value )).format()
   }
-  if (moneda.toUpperCase() === 'USD') {
-    return USD(parseFloat(value)).format();
+  if ( moneda.toUpperCase() === 'USD' ) {
+    return USD( parseFloat( value )).format()
   }
-  if (moneda.toUpperCase() === 'EURO') {
-    return EURO(parseFloat(value)).format();
+  if ( moneda.toUpperCase() === 'EURO' ) {
+    return EURO( parseFloat( value )).format()
   }
-  return CLP(parseFloat(value)).format();
-});
+
+  return CLP( parseFloat( value )).format()
+})
 
 // Vue.filter('ccard', (value, hide = false) => {
 //   const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');

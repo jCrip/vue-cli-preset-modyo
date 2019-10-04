@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import VeeEs from 'vee-validate/dist/locale/es.json'
-import VeeEn from 'vee-validate/dist/locale/en.json'
+import es from 'vee-validate/dist/locale/es.json'
+import en from 'vee-validate/dist/locale/en.json'
 
 Vue.use( VueI18n )
 
@@ -17,13 +17,13 @@ function loadLocaleMessages() {
   })
   messages.es = {
     ...messages.es,
-    validations: VeeEs.messages,
+    validations: es.messages,
   }
   messages.en = {
     ...messages.en,
-    validations: VeeEn.messages,
+    validations: en.messages,
   }
-  console.log( messages )
+
   return messages
 }
 

@@ -1,0 +1,19 @@
+{
+  "useConfigFiles": true,
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {
+      "config": "airbnb",
+      "lintOn": [
+        "save"
+      ]
+    },
+    "@vue/cli-plugin-unit-jest": {},
+    "vue-cli-plugin-i18n": {
+      "version": "^0.6.0",
+      "prompts": true
+    }
+  },
+  "vuex": true,
+  "cssPreprocessor": "node-sass"
+}

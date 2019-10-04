@@ -10,8 +10,7 @@
     },
     "@vue/cli-plugin-unit-jest": {},
     "vue-cli-plugin-i18n": {
-      "version": "^0.6.0",
-      "prompts": true
+      "version": "^0.6.0"
     }
   },
   "vuex": true,

@@ -12,7 +12,7 @@
       "lintOn": [
         "save"
       ]
-    },
+    }
   },
   "vuex": true,
   "cssPreprocessor": "node-sass"

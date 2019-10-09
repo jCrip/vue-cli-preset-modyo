@@ -13,7 +13,7 @@ module.exports = ( api ) => {
 
     const pkg = {
       dependencies: {
-        '@modyo/commons': '1.0.0',
+        // '@modyo/commons': '1.0.0',
       },
     }
 

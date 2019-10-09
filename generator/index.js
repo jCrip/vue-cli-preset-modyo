@@ -14,6 +14,7 @@ module.exports = ( api ) => {
     const pkg = {
       dependencies: {
         // '@modyo/commons': '1.0.0',
+        // '@modyo/vue-cli-plugin-cmds': '1.0.0'
       },
     }
 
@@ -30,26 +31,6 @@ module.exports = ( api ) => {
      */
 
     api.render( './templates' )
-
-    api.onCreateComplete(() => {
-      const {
-        EOL,
-        // eslint-disable-next-line global-require
-      } = require( 'os' )
-      // eslint-disable-next-line global-require
-      const fs = require( 'fs' )
-      const contentMain = fs.readFileSync( api.entryFile, {
-        encoding: 'utf-8',
-      })
-      const lines = contentMain.split( /\r?\n/g )
-
-      const renderIndex = lines.findIndex(( line ) => line.match( /Vue\.config/ ))
-      lines[renderIndex] += `${EOL}  Vue.directive('rut', rutDirective);`
-
-      fs.writeFileSync( api.entryFile, lines.join( EOL ), {
-        encoding: 'utf-8',
-      })
-    })
   } catch ( e ) {
     api.exitLog( `unexpected error in preset: ${e.message}`, 'error' )
   }

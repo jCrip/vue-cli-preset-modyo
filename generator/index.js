@@ -13,14 +13,7 @@ module.exports = ( api ) => {
 
     const pkg = {
       dependencies: {
-        axios: '0.19.0',
-        bootstrap: '4.3.1',
-        'v-calendar': '^1.0.0-beta.22',
-        'currency.js': '1.2.2',
-        'date-fns': '2.4.1',
-        'v-money': '0.8.1',
-        'vee-validate': '3.0.8',
-        'vue-multiselect': '2.1.6',
+        '@modyo/commons': '1.0.0',
       },
     }
 
@@ -29,14 +22,34 @@ module.exports = ( api ) => {
     /*
      * Modify main.js
      */
-    const file = 'src/main.js'
-    api.injectImports( file, 'import \'./vee-validate-conf\';' )
+    api.injectImports( api.entryFile, 'import \'./vee-validate-conf\';' )
+    api.injectImports( api.entryFile, 'import \'bootstrap/dist/css/bootstrap.min.css\';' )
 
     /*
      * render templates
      */
 
     api.render( './templates' )
+
+    api.onCreateComplete(() => {
+      const {
+        EOL,
+        // eslint-disable-next-line global-require
+      } = require( 'os' )
+      // eslint-disable-next-line global-require
+      const fs = require( 'fs' )
+      const contentMain = fs.readFileSync( api.entryFile, {
+        encoding: 'utf-8',
+      })
+      const lines = contentMain.split( /\r?\n/g )
+
+      const renderIndex = lines.findIndex(( line ) => line.match( /Vue\.config/ ))
+      lines[renderIndex] += `${EOL}  Vue.directive('rut', rutDirective);`
+
+      fs.writeFileSync( api.entryFile, lines.join( EOL ), {
+        encoding: 'utf-8',
+      })
+    })
   } catch ( e ) {
     api.exitLog( `unexpected error in preset: ${e.message}`, 'error' )
   }

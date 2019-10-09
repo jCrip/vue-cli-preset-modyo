@@ -1,3 +1,9 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-underscore-dangle */
+
+/* Config file for VeeValidate */
+/* Import and extend the rules you need to use. */
+
 import {
   extend,
   configure,
@@ -10,9 +16,6 @@ import {
   max_value,
 } from 'vee-validate/dist/rules'
 
-import {
-  rutUtilities,
-} from './helpers/rut'
 
 import i18n from './i18n'
 
@@ -25,8 +28,3 @@ extend( 'email', email )
 extend( 'numeric', numeric )
 extend( 'min_value', min_value )
 extend( 'max_value', max_value )
-
-extend( 'rut', {
-  validate: ( value ) => rutUtilities.validate( value ),
-  message: 'El {_field_} ingresado no es valido',
-})

@@ -5,7 +5,9 @@
     "@vue/cli-plugin-unit-jest": {},
     "vue-cli-plugin-i18n": {
       "version": "^0.6.0",
-      "prompts": true
+      "locale": "es",
+      "fallbackLocale": "es",
+      "localeDir": "locales"
     },
     "@vue/cli-plugin-eslint": {
       "config": "airbnb",

@@ -11,8 +11,8 @@ module.exports = {
   ],
 
   rules: {
-    'no-console': 'off',
-    'no-debugger': 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'max-len': [2, 120],
     'vue/html-closing-bracket-newline': ['error', {
       singleline: 'never',
@@ -34,12 +34,15 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
-  overrides: [{
-    files: [
-      '**/__tests__/*.{j,t}s?(x)',
-    ],
-    env: {
-      jest: true,
+  overrides: [
+    {
+      files: [
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)',
+      ],
+      env: {
+        jest: true,
+      },
     },
-  }],
+  ],
 }

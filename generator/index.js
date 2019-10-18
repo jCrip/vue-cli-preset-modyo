@@ -15,8 +15,16 @@ module.exports = ( api, options ) => {
     const pkg = {
       dependencies: {
         // TODO: uncomment when ready
-        // '@modyo/commons': '1.0.0',
-        // '@modyo/vue-cli-plugin-cmds': '1.0.0'
+        // '@modyo/financial-commons': '1.0.0',
+        axios: '^0.19.0',
+        bootstrap: '^4.3.1',
+        'currency.js': '^1.2.2',
+        'date-fns': '^2.5.0',
+        'v-money': '^0.8.1',
+        'vee-validate': '^3.0.11',
+        'vue-multiselect': '^2.1.6',
+        '@mathieustan/vue-datepicker': '^0.1.9',
+
       },
     }
 

@@ -34,7 +34,7 @@ module.exports = ( api, options ) => {
      * Modify main.js
      */
     api.injectImports( api.entryFile, 'import \'./vee-validate-conf\';' )
-    api.injectImports( api.entryFile, 'import \'bootstrap/dist/css/bootstrap.min.css\';' )
+    api.injectImports( api.entryFile, 'import \'bootstrap/scss/bootstrap.scss\';' )
 
     /*
      * render templates
